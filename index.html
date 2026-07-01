@@ -361,6 +361,10 @@
             const phone = "601169898188"; // without +
             window.open(`https://wa.me/${phone}`, '_blank');
         }
+
+        document.getElementById('appModal').addEventListener('click', function(e) {
+            if (e.target === this) hideAppModal();
+        });
     </script>
 </body>
 </html>
