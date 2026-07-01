@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuba - Explore Sabah, Get Paid!!</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configure Custom Zuba Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zuba: {
+                            blue: '#17539C', // Extracted from Zuba logo
+                            red: '#DA291C',  // Extracted from Zuba logo
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load Phosphor Icons for modern, lightweight icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom animated gradient background for the hero section using Zuba Blue */
+        .hero-gradient {
+            background: linear-gradient(135deg, #17539C 0%, #0d325e 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .lang-btn.active {
+            background-color: #17539C;
+            color: white;
+            border-color: #17539C;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-zuba-blue selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-2 cursor-pointer">
+                <img src="Zuba Logo.png" alt="Zuba Logo" class="h-10 w-auto">
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="flex space-x-1 bg-slate-100 p-1 rounded-full border border-slate-200">
+                <button onclick="switchLanguage('en')" id="btn-en" class="lang-btn active px-3 py-1 text-sm font-medium rounded-full transition-colors text-slate-600 border border-transparent hover:bg-slate-200">EN</button>
+                <button onclick="switchLanguage('ms')" id="btn-ms" class="lang-btn px-3 py-1 text-sm font-medium rounded-full transition-colors text-slate-600 border border-transparent hover:bg-slate-200">BM</button>
+                <button onclick="switchLanguage('zh')" id="btn-zh" class="lang-btn px-3 py-1 text-sm font-medium rounded-full transition-colors text-slate-600 border border-transparent hover:bg-slate-200">中文</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-24 pb-32 hero-gradient overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg class="absolute top-10 left-10 w-32 h-32 text-white animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>
+            <svg class="absolute bottom-10 right-10 w-48 h-48 text-white animate-bounce" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-semibold mb-6 border border-white/20">
+                <i class="ph-fill ph-map-pin text-zuba-red text-lg"></i>
+                <span id="badge-text">Best of Sabah, Only in Zuba</span>
+            </div>
+            
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4 drop-shadow-md">
+                Explore Sabah, Get Paid!!
+            </h1>
+            
+            <p id="hero-subtitle" class="mt-4 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto font-medium">
+                We're now giving you RM20 credit in your Touch 'n Go eWallet with EVERY booking you make on the Zuba apps.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 pb-20">
+        <!-- Offer Card -->
+        <div class="glass-card rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+            <!-- TnG Banner Mockup -->
+            <div class="bg-blue-900 px-6 py-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 border-b-4 border-yellow-400">
+                <div class="flex items-center gap-3">
+                    <div class="bg-white rounded-lg p-1 w-12 h-12 flex items-center justify-center">
+                        <i class="ph-fill ph-wallet text-blue-600 text-3xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white tracking-wide">
+                        <span class="text-yellow-400">RM20</span> Touch 'n Go
+                    </h2>
+                </div>
+                <p id="promo-highlight" class="text-blue-100 font-semibold text-sm sm:text-base bg-blue-800/50 px-4 py-2 rounded-full">
+                    Reward on every stay!
+                </p>
+            </div>
+
+            <div class="p-6 sm:p-10">
+                <h3 id="steps-title" class="text-xl font-bold text-slate-800 mb-8 text-center">It's simple. Here is how to claim:</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Step 1 -->
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-zuba-blue font-bold text-lg border border-blue-200 shadow-sm">1</div>
+                        <div>
+                            <h4 id="step1-title" class="font-bold text-slate-900 text-lg mb-1">Download Zuba App</h4>
+                            <p id="step1-desc" class="text-slate-600 text-sm">Get the app from your app store and sign up for a free account.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-zuba-blue font-bold text-lg border border-blue-200 shadow-sm">2</div>
+                        <div>
+                            <h4 id="step2-title" class="font-bold text-slate-900 text-lg mb-1">Book Your Stay</h4>
+                            <p id="step2-desc" class="text-slate-600 text-sm">Book any beautiful Sabah hotel directly within the Zuba app.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-zuba-blue font-bold text-lg border border-blue-200 shadow-sm">3</div>
+                        <div>
+                            <h4 id="step3-title" class="font-bold text-slate-900 text-lg mb-1">WhatsApp Us</h4>
+                            <p id="step3-desc" class="text-slate-600 text-sm">Reach out to us at +6011 6989 8188 with your booking confirmation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-zuba-blue font-bold text-lg border border-blue-200 shadow-sm">4</div>
+                        <div>
+                            <h4 id="step4-title" class="font-bold text-slate-900 text-lg mb-1">Receive RM20</h4>
+                            <p id="step4-desc" class="text-slate-600 text-sm">Get your RM20 credited directly to your Touch 'n Go eWallet after verification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 border-t border-slate-100">
+                    <button id="cta-app" class="w-full sm:w-auto px-8 py-3 bg-zuba-red hover:bg-[#b81d11] text-white rounded-xl font-bold shadow-lg shadow-red-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="ph ph-device-mobile text-xl"></i>
+                        Download App
+                    </button>
+                    <button onclick="copyNumber()" id="cta-whatsapp" class="w-full sm:w-auto px-8 py-3 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-xl font-bold shadow-lg shadow-green-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="ph ph-whatsapp-logo text-xl"></i>
+                        Contact Support
+                    </button>
+                </div>
+                
+                <!-- Notification Toast (Hidden by default) -->
+                <div id="toast" class="opacity-0 transition-opacity duration-300 fixed bottom-4 right-4 bg-slate-800 text-white px-4 py-2 rounded-lg shadow-xl text-sm pointer-events-none">
+                    Number copied to clipboard!
+                </div>
+
+                <!-- Terms -->
+                <div class="mt-8 text-center bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p id="terms-text" class="text-xs text-slate-500 font-medium">
+                        *Every successful booking is non-refundable, non-transferable, and non-cancellable. T&C Apply.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Store all localized strings
+        const translations = {
+            en: {
+                badge: "Best of Sabah, Only in Zuba",
+                title: "Explore Sabah,<br/>Get Paid!!",
+                subtitle: "We're now giving you RM20 credit in your Touch 'n Go eWallet with EVERY booking you make on the Zuba app.",
+                promo: "Reward on every stay!",
+                stepsTitle: "It's simple. Here is how to claim:",
+                s1Title: "Download Zuba App",
+                s1Desc: "Get the Zuba app from your app store and sign up for a free account.",
+                s2Title: "Book Your Stay",
+                s2Desc: "Book any beautiful Sabah hotel directly within the Zuba app.",
+                s3Title: "WhatsApp Us",
+                s3Desc: "Send your booking confirmation to our Customer Service at +6011 6989 8188.",
+                s4Title: "Receive RM20",
+                s4Desc: "Get RM20 in your Touch 'n Go eWallet once we have verified your booking.",
+                ctaApp: "Download App",
+                ctaWa: "WhatsApp Us",
+                terms: "*Every successful booking is non-refundable, non-transferable, and non-cancellable. T&C Apply."
+            },
+            ms: {
+                badge: "Terbaik di Sabah, Hanya di Zuba",
+                title: "Hanya di Sabah,<br/>Zuba Payung!!!",
+                subtitle: "Sebagai tanda penghargaan, kami berikan RM20 Touch 'n Go eWallet untuk SETIAP tempahan penginapan anda di aplikasi Zuba.",
+                promo: "Ganjaran setiap tempahan!",
+                stepsTitle: "Langkahnya cukup mudah:",
+                s1Title: "Muat turun Aplikasi Zuba",
+                s1Desc: "Dapatkan aplikasi Zuba dan daftar akaun secara percuma.",
+                s2Title: "Tempah Penginapan Anda",
+                s2Desc: "Tempah hotel pilihan anda di Sabah melalui aplikasi Zuba.",
+                s3Title: "Hubungi WhatsApp Kami",
+                s3Desc: "Hantar slip pengesahan tempahan anda ke talian +6011 6989 8188.",
+                s4Title: "Terima RM20",
+                s4Desc: "Terima RM20 ke dalam TnG eWallet anda selepas proses pengesahan selesai!",
+                ctaApp: "Muat Turun App",
+                ctaWa: "WhatsApp Kami",
+                terms: "*Setiap tempahan yang berjaya adalah tidak boleh dikembalikan, dipindah milik, atau dibatalkan. T&S Tertakluk."
+            },
+            zh: {
+                badge: "沙巴精选，尽在 Zuba",
+                title: "精选酒店，<br/>尊享奖励",
+                subtitle: "为了感谢您的支持，现在只要通过 Zuba App 预订任何住宿，每一次均可获得RM20现金回馈！",
+                promo: "奖励您的每一次预订！",
+                stepsTitle: "获取步骤非常简单：",
+                s1Title: "下载 Zuba App",
+                s1Desc: "在应用商店下载 Zuba App 并免费注册账号。",
+                s2Title: "预订住宿",
+                s2Desc: "在App内预订任何一家您心仪的沙巴酒店。",
+                s3Title: "联系客服",
+                s3Desc: "预订成功后，将确认单(Booking Confirmation)发送至WhatsApp +6011 6989 8188。",
+                s4Title: "领取 RM20",
+                s4Desc: "经系统核对无误后，RM20将直接存入您的 Touch 'n Go eWallet！",
+                ctaApp: "下载 App",
+                ctaWa: "联系我们",
+                terms: "*温馨提醒：所有参与此优惠的成功预订均不可退款、不可转让且不可取消。附带条规。"
+            }
+        };
+
+        // Function to handle language switching
+        function switchLanguage(lang) {
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Reset custom colors
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.style.borderColor = '';
+            });
+            
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            activeBtn.classList.add('active');
+            
+            // Map text content to DOM elements
+            const t = translations[lang];
+            
+            // Add a brief fade effect
+            const elementsToUpdate = [
+                'badge-text', 'hero-title', 'hero-subtitle', 'promo-highlight',
+                'steps-title', 'step1-title', 'step1-desc', 'step2-title', 
+                'step2-desc', 'step3-title', 'step3-desc', 'step4-title', 
+                'step4-desc', 'terms-text'
+            ];
+
+            elementsToUpdate.forEach(id => {
+                const el = document.getElementById(id);
+                el.style.opacity = '0';
+            });
+
+            // Update content and fade back in
+            setTimeout(() => {
+                document.getElementById('badge-text').innerHTML = t.badge;
+                document.getElementById('hero-title').innerHTML = t.title;
+                document.getElementById('hero-subtitle').innerHTML = t.subtitle;
+                document.getElementById('promo-highlight').innerHTML = t.promo;
+                document.getElementById('steps-title').innerHTML = t.stepsTitle;
+                
+                document.getElementById('step1-title').innerHTML = t.s1Title;
+                document.getElementById('step1-desc').innerHTML = t.s1Desc;
+                document.getElementById('step2-title').innerHTML = t.s2Title;
+                document.getElementById('step2-desc').innerHTML = t.s2Desc;
+                document.getElementById('step3-title').innerHTML = t.s3Title;
+                document.getElementById('step3-desc').innerHTML = t.s3Desc;
+                document.getElementById('step4-title').innerHTML = t.s4Title;
+                document.getElementById('step4-desc').innerHTML = t.s4Desc;
+                
+                // Keep icons inside buttons
+                document.getElementById('cta-app').innerHTML = `<i class="ph ph-device-mobile text-xl"></i> ${t.ctaApp}`;
+                document.getElementById('cta-whatsapp').innerHTML = `<i class="ph ph-whatsapp-logo text-xl"></i> ${t.ctaWa}`;
+                document.getElementById('terms-text').innerHTML = t.terms;
+
+                elementsToUpdate.forEach(id => {
+                    const el = document.getElementById(id);
+                    el.style.transition = 'opacity 0.3s ease-in-out';
+                    el.style.opacity = '1';
+                });
+            }, 150);
+        }
+
+        // Helper function for the WhatsApp contact button
+        function copyNumber() {
+            // Using execCommand as fallback for iFrame compatibility
+            const tempInput = document.createElement("input");
+            tempInput.value = "+601169898188";
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            // Show toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 3000);
+            
+            // Optional: Actually open WhatsApp if on mobile
+            // window.open('https://wa.me/601169898188', '_blank');
+        }
+    </script>
+</body>
+</html>
