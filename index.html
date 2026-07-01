@@ -155,7 +155,8 @@
 
                 <!-- Call to Action -->
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 border-t border-slate-100">
-                    <button id="cta-app" class="w-full sm:w-auto px-8 py-3 bg-zuba-red hover:bg-[#b81d11] text-white rounded-xl font-bold shadow-lg shadow-red-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <button onclick="showAppModal()" id="cta-app" 
+                        class="w-full sm:w-auto px-8 py-3 bg-zuba-red hover:bg-[#b81d11] text-white rounded-xl font-bold shadow-lg shadow-red-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i class="ph ph-device-mobile text-xl"></i>
                         Download App
                     </button>
@@ -179,6 +180,54 @@
             </div>
         </div>
     </main>
+
+    <!-- App Download Modal -->
+    <div id="appModal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] modal">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full mx-4 overflow-hidden">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold text-center mb-6 text-slate-800">Download Zuba App</h3>
+                
+                <div class="space-y-3">
+                    <a href="https://play.google.com/store/apps/details?id=malaysia.hy.zuba" target="_blank"
+                       class="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-all group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" 
+                             class="h-10" alt="Google Play">
+                        <div>
+                            <div class="font-semibold text-slate-800">Android</div>
+                            <div class="text-sm text-slate-500">Google Play Store</div>
+                        </div>
+                    </a>
+
+                    <a href="https://apps.apple.com/bn/app/zuba-book-hotels/id6498873343" target="_blank"
+                       class="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-all group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/App_Store_%28iOS%29_badge.svg/512px-App_Store_%28iOS%29_badge.svg.png" 
+                             class="h-10" alt="App Store">
+                        <div>
+                            <div class="font-semibold text-slate-800">iOS</div>
+                            <div class="text-sm text-slate-500">Apple App Store</div>
+                        </div>
+                    </a>
+
+                    <a href="https://appgallery.huawei.com/app/C113508181" target="_blank"
+                       class="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-all group">
+                        <img src="https://appgallery.huawei.com/appgallery/logo.png" 
+                             class="h-10" alt="Huawei AppGallery">
+                        <div>
+                            <div class="font-semibold text-slate-800">Huawei</div>
+                            <div class="text-sm text-slate-500">AppGallery</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t p-4">
+                <button onclick="hideAppModal()" 
+                        class="w-full py-3 text-slate-500 font-medium hover:text-slate-700 transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Store all localized strings
