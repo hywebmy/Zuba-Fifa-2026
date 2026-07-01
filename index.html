@@ -348,6 +348,14 @@
             }, 150);
         }
 
+        function showAppModal() {
+            document.getElementById('appModal').classList.remove('hidden');
+        }
+
+        function hideAppModal() {
+            document.getElementById('appModal').classList.add('hidden');
+        }
+
         // Helper function for the WhatsApp contact button
         function openWhatsApp() {
             const phone = "601169898188"; // without +
