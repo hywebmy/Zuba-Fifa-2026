@@ -159,7 +159,7 @@
                         <i class="ph ph-device-mobile text-xl"></i>
                         Download App
                     </button>
-                    <button onclick="copyNumber()" id="cta-whatsapp" class="w-full sm:w-auto px-8 py-3 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-xl font-bold shadow-lg shadow-green-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <button onclick="openWhatsApp()" id="cta-whatsapp" class="w-full sm:w-auto px-8 py-3 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-xl font-bold shadow-lg shadow-green-500/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i class="ph ph-whatsapp-logo text-xl"></i>
                         Contact Support
                     </button>
@@ -300,24 +300,9 @@
         }
 
         // Helper function for the WhatsApp contact button
-        function copyNumber() {
-            // Using execCommand as fallback for iFrame compatibility
-            const tempInput = document.createElement("input");
-            tempInput.value = "+601169898188";
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            
-            // Show toast
-            const toast = document.getElementById('toast');
-            toast.classList.remove('opacity-0');
-            setTimeout(() => {
-                toast.classList.add('opacity-0');
-            }, 3000);
-            
-            // Optional: Actually open WhatsApp if on mobile
-            window.open('https://wa.me/+601169898188', '_blank');
+        function openWhatsApp() {
+            const phone = "601169898188"; // without +
+            window.open(`https://wa.me/${phone}`, '_blank');
         }
     </script>
 </body>
